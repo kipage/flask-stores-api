@@ -1,0 +1,12 @@
+FROM python:3.10
+WORKDIR /app
+COPY requirements.txt .
+
+# RUN python -m venv  .venv  &&  \
+#     chmod +x .venv/bin/activate && ./.venv/bin/activate && \
+#     python -m pip install -r requirements.txt  
+
+RUN pip install -r requirements.txt 
+
+COPY . .
+CMD ["flask", "run", "--host", "0.0.0.0"]
